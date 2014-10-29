@@ -1,4 +1,9 @@
 <div class="jumbotron">
 	<h1> Welcome to Shelf!!!</h1>
-	<p>Click here to <%= link_to "Sign up", "#", class: "btn btn-primary" %> to the mailing list for an early preview!</p>
+	<% if user_signed_in? %>
+		Congrats! You are now an early adopter of Shelf! From now on you always know whats onyourshelf 
+	<% else %>	
+		<p> <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %> </p>
+		<p> <%= link_to "Click Here", new_user_registration_path, class: "btn btn-primary" %> to sign up to the mailing list for an early preview!</p>
+	<% end %>	
 </div>
